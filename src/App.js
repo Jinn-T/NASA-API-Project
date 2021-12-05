@@ -12,16 +12,10 @@ function App() {
             <Router>
                 <NavBar />
                 <Routes>
-                    <Route
-                        exact
-                        path="/"
-                        component={Home}
-                        render={({}) => <Home />}
-                    ></Route>
-                    <Route exact path="/landsat" component={LandSat}></Route>
+                    <Route path="/" component={Home} element={<Home />}></Route>
+                    <Route path="/landsat" component={LandSat}></Route>
                     <Route path="/marsweather" component={MarsWeather}></Route>
                     <Route
-                        exact
                         path="/eventtracker"
                         component={EventTracker}
                     ></Route>
