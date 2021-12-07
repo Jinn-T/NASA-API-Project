@@ -1,0 +1,35 @@
+@import "../../partials/typography";
+
+.pictureOtd {
+    &_title {
+        font-family: Helvetica, Arial, sans-serif;
+        font-family: $spaceMono;
+        text-align: center;
+        margin: 2.5rem;
+    }
+
+    &_img {
+        max-width: 85vw;
+        height: auto;
+        max-height: 85vw;
+        width: auto;
+        display: block;
+        margin: auto;
+        border-radius: 1%;
+    }
+
+    &_date {
+        text-align: center;
+        font-family: $spaceMono;
+    }
+
+    &_info {
+        font-family: $spaceGrotesk;
+        font-size: large;
+        text-align: justify;
+        margin: 2rem 10rem 10rem 10rem;
+        padding: 18px;
+        border: 2px solid #212528;
+        border-radius: 10px;
+    }
+}
