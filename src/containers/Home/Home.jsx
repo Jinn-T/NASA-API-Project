@@ -2,7 +2,7 @@ import styles from "./Home.module.scss";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-    const [picture, getPicture] = useState(null);
+    const [picture, getPicture] = useState("loading..");
 
     useEffect(() => {
         const getPicOfDay = async () => {
@@ -17,9 +17,17 @@ const Home = () => {
     console.log(picture);
 
     return (
-        <div>
-            <h1>TEST123352542534</h1>
-            <img src={picture.hdurl} />
+        <div className={styles.pictureOtd}>
+            <h1 className={styles.pictureOtd_title}>PICTURE OF THE DAY!</h1>
+            <h3 className={styles.pictureOtd_title}>{picture.title}</h3>
+
+            <img
+                src={picture.hdurl}
+                alt={picture.title}
+                className={styles.pictureOtd_img}
+            />
+            <h5 className={styles.pictureOtd_date}>{picture.date}</h5>
+            <p className={styles.pictureOtd_info}>{picture.explanation}</p>
         </div>
     );
 };
