@@ -1,6 +1,7 @@
 import styles from "./Home.module.scss";
 import { useEffect, useState } from "react";
 import Gallery from "../../components/Gallery";
+import PotdHeader from "../../components/PotdHeader";
 
 const Home = () => {
     // picture of the day
@@ -37,19 +38,8 @@ const Home = () => {
 
     return (
         <>
-            <div className={styles.pictureOtd}>
-                <h1 className={styles.pictureOtd_title}>PICTURE OF THE DAY!</h1>
-                <h3 className={styles.pictureOtd_title}>{picture.title}</h3>
-
-                <img
-                    src={picture.hdurl}
-                    alt={picture.title}
-                    className={styles.pictureOtd_img}
-                />
-                <h5 className={styles.pictureOtd_date}>{picture.date}</h5>
-                <p className={styles.pictureOtd_info}>{picture.explanation}</p>
-            </div>
             <div>
+                <PotdHeader picture={picture} />
                 {gallery &&
                     gallery.map((gallery, index) => (
                         <Gallery gallery={gallery} key={index} />
