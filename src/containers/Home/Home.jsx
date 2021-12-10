@@ -26,7 +26,7 @@ const Home = () => {
     useEffect(() => {
         const getGallery = async () => {
             const response = await fetch(
-                "https://images-api.nasa.gov/search?q=random"
+                "https://images-api.nasa.gov/search?q=moon"
             );
             const data = await response.json();
             setGallery(data.collection.items);
