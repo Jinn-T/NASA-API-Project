@@ -3,9 +3,16 @@ import styles from "./Gallery.module.scss";
 const Gallery = ({ gallery }) => {
     return (
         <div>
-            <p>{gallery.data.title}</p>
-            <p>{gallery.href}</p>
-            <img src={gallery.href} alt="hello"></img>
+            {/* maybe use a for loop to limit number of pics? */}
+            {gallery.data.map((w) => (
+                <div key={w}>
+                    <p>{w.title}</p>
+                    <p>{w.description}</p>
+                </div>
+            ))}
+            {gallery.links && (
+                <img src={gallery.links[0].href} alt="picture"></img>
+            )}
         </div>
     );
 };
