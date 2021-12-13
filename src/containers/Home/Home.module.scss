@@ -33,3 +33,9 @@
         border-radius: 10px;
     }
 }
+
+.gallery {
+    display: grid;
+    flex-wrap: wrap;
+    margin: 5%;
+}

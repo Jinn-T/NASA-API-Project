@@ -2,6 +2,7 @@ import styles from "./Home.module.scss";
 import { useEffect, useState } from "react";
 import Gallery from "../../components/Gallery";
 import PotdHeader from "../../components/PotdHeader";
+import { Row } from "react-bootstrap";
 
 const Home = () => {
     // picture of the day
@@ -34,16 +35,23 @@ const Home = () => {
         getGallery();
     }, []);
 
-    console.log(gallery);
-
+    console.log("gallery:", gallery);
+    console.log("slice:", gallery && gallery.slice(0, 5));
     return (
         <>
             <div>
                 <PotdHeader picture={picture} />
-                {gallery &&
-                    gallery.map((gallery, index) => (
-                        <Gallery gallery={gallery} key={index} />
-                    ))}
+
+                <div className={styles.gallery}>
+                    <Row xs={1} md={3} className="g-4">
+                        {gallery &&
+                            gallery
+                                .filter((gallery, index) => index < 10)
+                                .map((gallery, index) => (
+                                    <Gallery gallery={gallery} key={index} />
+                                ))}
+                    </Row>
+                </div>
             </div>
         </>
     );
