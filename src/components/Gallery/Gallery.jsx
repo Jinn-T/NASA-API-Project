@@ -1,12 +1,12 @@
 import styles from "./Gallery.module.scss";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 
-const Gallery = ({ gallery }) => {
+const Gallery = ({ gallery, index }) => {
     return (
         <div>
             {/* <Row xs={2} md={2} className="g-4"> */}
-            {Array.from({ length: 1 }).map((_, index) => (
-                <Col>
+            {Array.from({ length: 1 }).map((_, idx) => (
+                <Col index={index} className={styles.gallery_pictureCard}>
                     {gallery.data.map((w) => (
                         <Card>
                             {gallery.links && (
@@ -16,7 +16,11 @@ const Gallery = ({ gallery }) => {
                                 />
                             )}
                             <Card.Body>
-                                <Card.Title>{w.title}</Card.Title>
+                                <Card.Title
+                                    className={styles.gallery_pictureCard_title}
+                                >
+                                    {w.title}
+                                </Card.Title>
                                 <Card.Text>{}</Card.Text>
                             </Card.Body>
                         </Card>

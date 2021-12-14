@@ -35,7 +35,9 @@
 }
 
 .gallery {
-    display: grid;
+    display: flex;
     flex-wrap: wrap;
-    margin: 5%;
+    // margin: 0 auto;
+    margin: 1%;
+    position: relative;
 }

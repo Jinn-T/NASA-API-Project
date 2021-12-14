@@ -2,6 +2,7 @@ import styles from "./Home.module.scss";
 import { useEffect, useState } from "react";
 import Gallery from "../../components/Gallery";
 import PotdHeader from "../../components/PotdHeader";
+import SearchBar from "../../components/SearchBar";
 import { Row } from "react-bootstrap";
 
 const Home = () => {
@@ -36,12 +37,12 @@ const Home = () => {
     }, []);
 
     console.log("gallery:", gallery);
-    console.log("slice:", gallery && gallery.slice(0, 5));
+    // console.log("slice:", gallery && gallery.slice(0, 5));
     return (
         <>
             <div>
                 <PotdHeader picture={picture} />
-
+                <SearchBar />
                 <div className={styles.gallery}>
                     <Row xs={1} md={3} className="g-4">
                         {gallery &&
