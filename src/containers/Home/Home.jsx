@@ -6,7 +6,7 @@ import SearchBar from "../../components/SearchBar";
 import { Row } from "react-bootstrap";
 
 const Home = () => {
-    // picture of the day
+    // picture of the day api call
     const [picture, setPicture] = useState("loading..");
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const Home = () => {
     }, []);
     console.log(picture);
 
-    // image and video library gallery
+    // image and video library gallery api call
 
     const [gallery, setGallery] = useState(null);
 
@@ -38,11 +38,20 @@ const Home = () => {
 
     console.log("gallery:", gallery);
     // console.log("slice:", gallery && gallery.slice(0, 5));
+
+    // useState to store our search value
+    const [search, setSearch] = useState("");
+
+    // function handler which we will pass down to our search component allowing us to update the state.
+    const handleSubmit = (newSearchValue) => {
+        setSearch(newSearchValue);
+    };
+
     return (
         <>
             <div>
                 <PotdHeader picture={picture} />
-                <SearchBar />
+                <SearchBar onSubmit={handleSubmit} />
                 <div className={styles.gallery}>
                     <Row xs={1} md={3} className="g-4">
                         {gallery &&
