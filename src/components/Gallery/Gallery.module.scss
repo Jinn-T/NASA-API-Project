@@ -1,5 +1,12 @@
+@import "../../partials/typography";
+
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 5%;
+    &_pictureCard {
+        display: block;
+        margin: auto;
+
+        &_title {
+            font-family: $spaceMono;
+        }
+    }
 }
