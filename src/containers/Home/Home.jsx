@@ -21,6 +21,9 @@ const Home = () => {
     }, []);
     console.log(picture);
 
+    // useState to store our search value
+    const [search, setSearch] = useState("hello");
+
     // image and video library gallery api call
 
     const [gallery, setGallery] = useState(null);
@@ -28,24 +31,22 @@ const Home = () => {
     useEffect(() => {
         const getGallery = async () => {
             const response = await fetch(
-                "https://images-api.nasa.gov/search?q=moon"
+                `https://images-api.nasa.gov/search?q=${search}`
             );
             const data = await response.json();
             setGallery(data.collection.items);
         };
         getGallery();
-    }, []);
+    }, [search]);
 
     console.log("gallery:", gallery);
-    // console.log("slice:", gallery && gallery.slice(0, 5));
 
-    // useState to store our search value
-    const [search, setSearch] = useState("");
-
-    // function handler which we will pass down to our search component allowing us to update the state.
+    // function handler which we will pass down to our search component, allowing us to update the state.
     const handleSubmit = (newSearchValue) => {
         setSearch(newSearchValue);
     };
+
+    console.log("search:", search);
 
     return (
         <>
@@ -56,7 +57,7 @@ const Home = () => {
                     <Row xs={1} md={3} className="g-4">
                         {gallery &&
                             gallery
-                                .filter((gallery, index) => index < 10)
+                                .filter((gallery, index) => index < 12)
                                 .map((gallery, index) => (
                                     <Gallery gallery={gallery} key={index} />
                                 ))}
