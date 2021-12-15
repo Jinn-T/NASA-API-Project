@@ -6,9 +6,9 @@ const Gallery = ({ gallery, index }) => {
         <div>
             {/* <Row xs={2} md={2} className="g-4"> */}
             {Array.from({ length: 1 }).map((_, idx) => (
-                <Col index={index} className={styles.gallery_pictureCard}>
-                    {gallery.data.map((w) => (
-                        <Card>
+                <Col key={idx} className={styles.gallery_pictureCard}>
+                    {gallery.data.map((w, idx) => (
+                        <Card key={idx}>
                             {gallery.links && (
                                 <Card.Img
                                     variant="top"

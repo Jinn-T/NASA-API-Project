@@ -52,7 +52,11 @@ const Home = () => {
         <>
             <div>
                 <PotdHeader picture={picture} />
-                <SearchBar onSubmit={handleSubmit} />
+                <h1 className={styles.galleryTitle}>NASA GALLERY</h1>
+                <SearchBar
+                    className={styles.searchBar}
+                    onSubmit={handleSubmit}
+                />
                 <div className={styles.gallery}>
                     <Row xs={1} md={3} className="g-4">
                         {gallery &&
