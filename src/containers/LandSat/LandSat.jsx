@@ -1,22 +1,24 @@
 import styles from "./LandSat.module.scss";
 import { useEffect, useState } from "react";
+const key = "xtvhA8LjsnJ0AZ1bbpP4cWQJ6HjB7UEmhuR8lnjf";
+const demo = `DEMO_KEY`;
 
 const LandSat = () => {
     // api call for landsat imagery
     const [landSatImagery, setLandSatImagery] = useState(null);
 
+    // lat = N and S
+    // lon = E and W
+
     useEffect(() => {
         const getLandSatImagery = async () => {
-            // const response = await fetch(
-            //     `https://api.nasa.gov/planetary/earth/imagery?lon=30.099033&lat=51.389636&api_key=xtvhA8LjsnJ0AZ1bbpP4cWQJ6HjB7UEmhuR8lnjf`
-            // );
             const response = await fetch(
-                `https://api.nasa.gov/planetary/earth/imagery?lon=30.099033&lat=51.389636&date=2014-02-01&api_key=DEMO_KEY`
+                `https://api.nasa.gov/planetary/earth/assets?lon=-110.8358417&lat=32.1499889&date=2020-11-01&&dim=0.155&api_key=${key}`
             );
-            // console.log("response:", response);
-            // const data = await response.json();
-            // console.log("data:", data);
-            setLandSatImagery(response);
+            console.log("response:", response);
+            const data = await response.json();
+            console.log("data:", data);
+            setLandSatImagery(data);
         };
         getLandSatImagery();
     }, []);
