@@ -22,7 +22,7 @@ const Home = () => {
     console.log(picture);
 
     // useState to store our search value
-    const [search, setSearch] = useState("hello");
+    const [search, setSearch] = useState("mars");
 
     // image and video library gallery api call
 

@@ -11,25 +11,36 @@ const LandSatSearch = ({ onSubmit }) => {
     // update our search state after clicking button
     const handleButtonClick = () => {
         onSubmit(longValue);
+        onSubmit(latValue);
     };
 
-    console.log(longValue);
+    console.log("longValue", longValue);
+
+    // state for lat value
+    const [latValue, setLatValue] = useState("");
+    // handler to track lat input value
+    const handleLatChange = (event) => {
+        setLatValue(event.target.value);
+    };
+    console.log("latValue", latValue);
 
     return (
-        <div>
-            <div className={styles.long}>
-                <p>Longitude</p>
+        <div className={styles.searchBar}>
+            <div className={styles.searchBar_long}>
+                <label>Longitude</label>
                 <input type="text" onChange={handleLongChange} />
             </div>
             <div>
-                <p>Latitude</p>
-                <input type="text" />
+                <label>Latitude</label>
+                <input type="text" onChange={handleLatChange} />
             </div>
-            <div>
+            {/* <div>
                 <p>Date</p>
                 <input type="text" />
+            </div> */}
+            <div>
+                <button onClick={handleButtonClick}>Search!</button>
             </div>
-            <button onClick={handleButtonClick}>Search!</button>
         </div>
     );
 };
