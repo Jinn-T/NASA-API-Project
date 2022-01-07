@@ -13,11 +13,13 @@ const LandSat = () => {
 
     // longitude state
     const [longSearch, setLongSearch] = useState(-110.8358417);
+    // latitude state
+    const [latSearch, setLatSearch] = useState(32.1499889);
 
     useEffect(() => {
         const getLandSatImagery = async () => {
             const response = await fetch(
-                `https://api.nasa.gov/planetary/earth/assets?lon=${longSearch}&lat=32.1499889&date=2020-11-01&&dim=0.155&api_key=${key}`
+                `https://api.nasa.gov/planetary/earth/assets?lon=${longSearch}&lat=${latSearch}&date=2020-11-01&&dim=0.155&api_key=${key}`
             );
             console.log("response:", response);
             const data = await response.json();
@@ -25,25 +27,31 @@ const LandSat = () => {
             setLandSatImagery(data);
         };
         getLandSatImagery();
-    }, [longSearch]); // watch the search states
+    }, [longSearch, latSearch]); // watch the search states
 
     console.log("landsatimagery state:", landSatImagery);
 
     // function handler which we will pass down to our search component, allowing us to update the state.
-    const handleSubmit = (longValue) => {
+    const handleLongSubmit = (longValue) => {
         setLongSearch(longValue);
+    };
+    // latitude handler
+    const handleLatSubmit = (latValue) => {
+        setLatSearch(latValue);
     };
 
     console.log("longSearch:", longSearch);
+    console.log("latSearch:", latSearch);
 
     return (
         <div>
-            <h1>hello</h1>
-            <LandSatSearch onSubmit={handleSubmit} />
+            <h1 className={styles.landSatTitle}>LandSat Imagery</h1>
+            <LandSatSearch onSubmit={(handleLongSubmit, handleLatSubmit)} />
+            {landSatImagery && <p>{landSatImagery.msg}</p>}
             {landSatImagery && (
                 <img
                     src={landSatImagery.url}
-                    alt="test"
+                    alt="LandSat Image"
                     className={styles.landSatPic}
                 />
             )}
