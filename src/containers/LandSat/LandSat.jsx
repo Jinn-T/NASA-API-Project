@@ -19,7 +19,7 @@ const LandSat = () => {
     useEffect(() => {
         const getLandSatImagery = async () => {
             const response = await fetch(
-                `https://api.nasa.gov/planetary/earth/assets?lon=${longSearch}&lat=${latSearch}&date=2020-11-01&&dim=0.155&api_key=${key}`
+                `https://api.nasa.gov/planetary/earth/assets?lon=${longSearch}&lat=${latSearch}&date=2020-11-01&&dim=0.1&api_key=${key}`
             );
             console.log("response:", response);
             const data = await response.json();
