@@ -8,8 +8,9 @@ const LandSat = () => {
     // api call for landsat imagery
     const [landSatImagery, setLandSatImagery] = useState(null);
 
-    // lat = N and S
-    // lon = E and W
+    // lat = N and S -> -90 to 90
+    // lon = E and W -> -180 to 180
+    //
 
     // longitude state
     const [longSearch, setLongSearch] = useState(-110.8358417);
@@ -44,15 +45,25 @@ const LandSat = () => {
     console.log("latSearch:", latSearch);
 
     return (
-        <div>
-            <h1 className={styles.landSatTitle}>LandSat Imagery</h1>
+        <div className={styles.landSat}>
+            <h1 className={styles.landSat_Title}>LandSat Imagery</h1>
+            <p className={styles.landSat_Desc}>
+                Latitude and longitude are a pair of numbers (coordinates) used
+                to describe a position on the plane of a geographic coordinate
+                system. The numbers are in decimal degrees format and range from
+                -90 to 90 for latitude and -180 to 180 for longitude.
+            </p>
             <LandSatSearch onSubmit={(handleLongSubmit, handleLatSubmit)} />
+            {/* display msg */}
             {landSatImagery && <p>{landSatImagery.msg}</p>}
+            <p className={styles.landSat_picPara}>
+                Some areas may be covered by clouds!
+            </p>
             {landSatImagery && (
                 <img
                     src={landSatImagery.url}
                     alt="LandSat Image"
-                    className={styles.landSatPic}
+                    className={styles.landSat_Pic}
                 />
             )}
         </div>

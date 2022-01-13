@@ -5,5 +5,12 @@
 .searchBar {
     display: flex;
     justify-content: center;
-    margin: 2%;
+    margin: 3%;
+
+    &_long {
+        margin-right: 0.5%;
+    }
+    &_lat {
+        margin-right: 0.5%;
+    }
 }
