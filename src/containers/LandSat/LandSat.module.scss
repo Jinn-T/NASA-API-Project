@@ -1,12 +1,30 @@
-.landSatTitle {
-    margin: 5%;
-    text-align: center;
-}
-.landSatPic {
-    border-radius: 1.5%;
-    display: block;
-    margin: auto;
-    height: 70vh;
-    // height: 250px;
-    // width: 250px;
+@import "../../partials/typography";
+
+.landSat {
+    &_Title {
+        font-family: $spaceMono;
+        margin: 4%;
+        text-align: center;
+    }
+    &_Desc {
+        font-family: $spaceMono;
+        margin: 0 20% 0 20%;
+        text-align: justify;
+    }
+    &_Pic {
+        border-radius: 1.5%;
+        display: block;
+        margin: auto;
+        margin-bottom: 15vh;
+        height: 70vh;
+        // height: 250px;
+        // width: 250px;
+    }
+    &_errorMsg {
+        text-align: center;
+    }
+    &_picPara {
+        text-align: center;
+        font-family: $spaceMono;
+    }
 }

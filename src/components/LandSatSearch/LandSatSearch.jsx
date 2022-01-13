@@ -27,11 +27,11 @@ const LandSatSearch = ({ onSubmit }) => {
     return (
         <div className={styles.searchBar}>
             <div className={styles.searchBar_long}>
-                <label>Longitude</label>
+                <label className={styles.searchBar_label}>Longitude</label>
                 <input type="text" onChange={handleLongChange} />
             </div>
-            <div>
-                <label>Latitude</label>
+            <div className={styles.searchBar_lat}>
+                <label className={styles.searchBar_label}>Latitude</label>
                 <input type="text" onChange={handleLatChange} />
             </div>
             {/* <div>
