@@ -1,3 +1,13 @@
+@import "../../partials/typography";
+
+label {
+    font-family: $spaceMono;
+    margin-right: 5px;
+}
+button {
+    font-family: $spaceMono;
+}
+
 .landSatTitle {
     text-align: center;
 }
@@ -5,7 +15,7 @@
 .searchBar {
     display: flex;
     justify-content: center;
-    margin: 3%;
+    margin: 1%;
 
     &_long {
         margin-right: 0.5%;

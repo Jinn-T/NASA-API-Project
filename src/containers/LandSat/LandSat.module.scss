@@ -1,30 +1,40 @@
 @import "../../partials/typography";
 
+* {
+}
 .landSat {
     &_Title {
         font-family: $spaceMono;
-        margin: 4%;
+        margin: 3%;
         text-align: center;
     }
     &_Desc {
-        font-family: $spaceMono;
-        margin: 0 20% 0 20%;
+        // font-family: $spaceMono;
+        font-family: $spaceGrotesk;
+        margin: 1% 20% 0 20%;
         text-align: justify;
+        padding: 0.5%;
+        border: solid black 1px;
+        border-radius: 10px;
+        margin-bottom: 15vh;
     }
     &_Pic {
         border-radius: 1.5%;
+        align-items: center;
         display: block;
         margin: auto;
-        margin-bottom: 15vh;
+        // margin: 10px;
         height: 70vh;
         // height: 250px;
         // width: 250px;
     }
     &_errorMsg {
         text-align: center;
+        font-family: $spaceMono;
     }
     &_picPara {
         text-align: center;
-        font-family: $spaceMono;
+        // font-family: $spaceMono;
+        font-family: $spaceGrotesk;
     }
 }
