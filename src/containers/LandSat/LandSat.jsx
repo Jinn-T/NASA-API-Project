@@ -1,5 +1,6 @@
 import styles from "./LandSat.module.scss";
 import LandSatSearch from "../../components/LandSatSearch";
+import LandSatCards from "../../components/LandSatCards";
 import { useEffect, useState } from "react";
 const key = "xtvhA8LjsnJ0AZ1bbpP4cWQJ6HjB7UEmhuR8lnjf";
 const demo = `DEMO_KEY`;
@@ -46,19 +47,18 @@ const LandSat = () => {
 
     return (
         <div className={styles.landSat}>
-            <h1 className={styles.landSat_Title}>LandSat Imagery</h1>
-            <p className={styles.landSat_Desc}>
+            <h1 className={styles.landSat_Title}>LANDSAT IMAGERY</h1>
+            {/* <p className={styles.landSat_Desc}>
                 Latitude and longitude are a pair of numbers (coordinates) used
                 to describe a position on the plane of a geographic coordinate
                 system. The numbers are in decimal degrees format and range from
                 -90 to 90 for latitude and -180 to 180 for longitude.
-            </p>
-            <LandSatSearch onSubmit={(handleLongSubmit, handleLatSubmit)} />
+            </p> */}
             {/* display msg */}
-            {landSatImagery && <p>{landSatImagery.msg}</p>}
-            <p className={styles.landSat_picPara}>
-                Some areas may be covered by clouds!
-            </p>
+            <LandSatSearch onSubmit={(handleLongSubmit, handleLatSubmit)} />
+            {landSatImagery && (
+                <p className={styles.landSat_errorMsg}>{landSatImagery.msg}</p>
+            )}
             {landSatImagery && (
                 <img
                     src={landSatImagery.url}
@@ -66,6 +66,16 @@ const LandSat = () => {
                     className={styles.landSat_Pic}
                 />
             )}
+            <p className={styles.landSat_picPara}>
+                Some areas may be covered by clouds!
+            </p>
+            <p className={styles.landSat_Desc}>
+                Latitude and longitude are a pair of numbers (coordinates) used
+                to describe a position on the plane of a geographic coordinate
+                system. The numbers are in decimal degrees format and range from
+                -90 to 90 for latitude and -180 to 180 for longitude.
+            </p>
+            <LandSatCards />
         </div>
     );
 };

@@ -67,6 +67,7 @@ const Home = () => {
                                 ))}
                     </Row>
                 </div>
+                {/* map through array and pass down to our gallery component which we can then render into cards */}
             </div>
         </>
     );
