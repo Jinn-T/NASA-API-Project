@@ -21,6 +21,7 @@ const MarsWeather = () => {
 
   console.log("marsWeather:", JSO);
   console.log("test:", JSO.sol_keys);
+  //test
 
   return (
     <div>
