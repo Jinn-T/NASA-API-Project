@@ -3,27 +3,27 @@ import { Link } from "react-router-dom";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 const NavBar1 = () => {
-    return (
-        <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="/">NASA API</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link as={Link} to="/">
-                                Home
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="/landsat">
-                                Landsat Imagery
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="/marsweather">
-                                Mars Weather
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="/eventtracker">
-                                Event Tracker
-                            </Nav.Link>
-                            {/* <NavDropdown
+  return (
+    <>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">NASA API</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/landsat">
+                Landsat Imagery
+              </Nav.Link>
+              <Nav.Link as={Link} to="/marsrover">
+                Mars Rover Photos
+              </Nav.Link>
+              <Nav.Link as={Link} to="/eventtracker">
+                Event Tracker
+              </Nav.Link>
+              {/* <NavDropdown
                                 title="Dropdown"
                                 id="collasible-nav-dropdown"
                             >
@@ -41,18 +41,18 @@ const NavBar1 = () => {
                                     Separated link
                                 </NavDropdown.Item>
                             </NavDropdown> */}
-                        </Nav>
-                        <Nav>
-                            <Nav.Link href="#deets">-</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                -
-                            </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </>
-    );
+            </Nav>
+            <Nav>
+              <Nav.Link href="#deets">-</Nav.Link>
+              <Nav.Link eventKey={2} href="#memes">
+                -
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
+  );
 };
 
 export default NavBar1;
