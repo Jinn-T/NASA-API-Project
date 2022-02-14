@@ -10,7 +10,7 @@ const MarsRover = () => {
     const [roverPhotos, setRoverPhotos] = useState(null);
 
     // roverCamera state
-    const [roverCamera, setRoverCamera] = useState("MAST");
+    const [roverCamera, setRoverCamera] = useState("NAVCAM");
 
     useEffect(() => {
         const getRoverPhotos = async () => {
@@ -39,9 +39,9 @@ const MarsRover = () => {
                 Mars.
             </h3>
             {/* {roverPhotos && (
-                <p className={styles.desc_para}>
-                    {roverPhotos[0].camera.earth_date}
-                </p>
+                <h5 className={styles.desc_para}>
+                    Earth Date: {roverPhotos.photos[0].earth_date}
+                </h5>
             )} */}
             <div className={styles.buttonGroup}>
                 <ButtonGroup aria-label="Basic example">
