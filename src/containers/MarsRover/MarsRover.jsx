@@ -38,6 +38,11 @@ const MarsRover = () => {
                 Photos taken on Curiosity's 1000th Martian sol exploration of
                 Mars.
             </h3>
+            {/* {roverPhotos && (
+                <p className={styles.desc_para}>
+                    {roverPhotos[0].camera.earth_date}
+                </p>
+            )} */}
             <div className={styles.buttonGroup}>
                 <ButtonGroup aria-label="Basic example">
                     <Button
@@ -45,49 +50,49 @@ const MarsRover = () => {
                         value="FHAZ"
                         onClick={handleClick}
                     >
-                        Front Hazard Avoidance Camera
+                        -Front Hazard Avoidance Camera-
                     </Button>
                     <Button
                         variant="secondary"
                         value="RHAZ"
                         onClick={handleClick}
                     >
-                        Rear Hazard Avoidance Camera
+                        -Rear Hazard Avoidance Camera-
                     </Button>
                     <Button
                         variant="secondary"
                         value="MAST"
                         onClick={handleClick}
                     >
-                        Mast Camera
+                        -Mast Camera-
                     </Button>
                     <Button
                         variant="secondary"
                         value="CHEMCAM"
                         onClick={handleClick}
                     >
-                        Chemistry and Camera Complex
+                        -Chemistry and Camera Complex-
                     </Button>
                     <Button
                         variant="secondary"
                         value="MAHLI"
                         onClick={handleClick}
                     >
-                        Mars Hand Lens Imager
+                        -Mars Hand Lens Imager-
                     </Button>
                     <Button
                         variant="secondary"
                         value="MARDI"
                         onClick={handleClick}
                     >
-                        Mars Descent Imager
+                        -Mars Descent Imager-
                     </Button>
                     <Button
                         variant="secondary"
                         value="NAVCAM"
                         onClick={handleClick}
                     >
-                        Navigation Camera
+                        -Navigation Camera-
                     </Button>
                 </ButtonGroup>
             </div>
