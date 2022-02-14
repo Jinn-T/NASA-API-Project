@@ -9,46 +9,26 @@ const MarsRover = () => {
     // marsWeather state
     const [roverPhotos, setRoverPhotos] = useState(null);
 
+    // roverCamera state
+    const [roverCamera, setRoverCamera] = useState("MAST");
+
     useEffect(() => {
         const getRoverPhotos = async () => {
             const response = await fetch(
-                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY`
+                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&&camera=${roverCamera}&api_key=${key}`
             );
             const data = await response.json();
             setRoverPhotos(data);
         };
         getRoverPhotos();
-    }, []);
+    }, [roverCamera]);
 
     console.log("roverPhotos:", roverPhotos);
-    //   console.log("test:", JSO.sol_keys);
-
-    // console.log("roverPhotos.photos", roverPhotos.photos);
-
-    // test cleaned data
-    // const cleanedRoverPhotos = (data) => {
-    //     let newArr = [];
-    //     for (let i = 0; i < data.photos.length; i++) {
-    //         if (newArr.includes(data.photos[i].id)) {
-    //             console.log("duplicate");
-    //         } else {
-    //             newArr.push(data.photos[i].id);
-    //         }
-    //     }
-    //     console.log(newArr);
-    //     return newArr;
-    // };
-
-    // if (roverPhotos !== null) {
-    //     console.log("cleanedData:", cleanedRoverPhotos(roverPhotos));
-    // }
 
     // onclick - changes state and allows us to toggle different cameras
 
-    const [roverCamera, setRoverCamera] = useState("MAST");
-
-    const handleClick = (camera) => {
-        setRoverCamera(camera.target.value);
+    const handleClick = (e) => {
+        setRoverCamera(e.target.value);
     };
     console.log("roverCamera State:", roverCamera);
 
@@ -60,15 +40,55 @@ const MarsRover = () => {
             </h3>
             <div className={styles.buttonGroup}>
                 <ButtonGroup aria-label="Basic example">
-                    <Button variant="secondary" onClick={handleClick}>
-                        FHAZ
+                    <Button
+                        variant="secondary"
+                        value="FHAZ"
+                        onClick={handleClick}
+                    >
+                        Front Hazard Avoidance Camera
                     </Button>
-                    <Button variant="secondary">RHAZ</Button>
-                    <Button variant="secondary">MAST</Button>
-                    <Button variant="secondary">CHEMCAM</Button>
-                    <Button variant="secondary">MAHLI</Button>
-                    <Button variant="secondary">MARDI</Button>
-                    <Button variant="secondary">NAVCAM</Button>
+                    <Button
+                        variant="secondary"
+                        value="RHAZ"
+                        onClick={handleClick}
+                    >
+                        Rear Hazard Avoidance Camera
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        value="MAST"
+                        onClick={handleClick}
+                    >
+                        Mast Camera
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        value="CHEMCAM"
+                        onClick={handleClick}
+                    >
+                        Chemistry and Camera Complex
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        value="MAHLI"
+                        onClick={handleClick}
+                    >
+                        Mars Hand Lens Imager
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        value="MARDI"
+                        onClick={handleClick}
+                    >
+                        Mars Descent Imager
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        value="NAVCAM"
+                        onClick={handleClick}
+                    >
+                        Navigation Camera
+                    </Button>
                 </ButtonGroup>
             </div>
 
@@ -85,3 +105,25 @@ const MarsRover = () => {
 };
 
 export default MarsRover;
+
+//   console.log("test:", JSO.sol_keys);
+
+// console.log("roverPhotos.photos", roverPhotos.photos);
+
+// test cleaned data
+// const cleanedRoverPhotos = (data) => {
+//     let newArr = [];
+//     for (let i = 0; i < data.photos.length; i++) {
+//         if (newArr.includes(data.photos[i].id)) {
+//             console.log("duplicate");
+//         } else {
+//             newArr.push(data.photos[i].id);
+//         }
+//     }
+//     console.log(newArr);
+//     return newArr;
+// };
+
+// if (roverPhotos !== null) {
+//     console.log("cleanedData:", cleanedRoverPhotos(roverPhotos));
+// }
