@@ -32,17 +32,45 @@ const MarsRover = () => {
     };
     console.log("roverCamera State:", roverCamera);
 
+    // generate random index's for roverPhotos which we can then use in our filter iterator
+
+    const randomPhotoIndex = (array) => {
+        // console.log("array in random function", array);
+        // console.log(Math.floor(Math.random() * array.length));
+        const limit = 12;
+        let newArr = [];
+        for (let i = 0; i < limit; i++) {
+            // array.length or specify how many pics you want to render
+            let randomNum = Math.floor(Math.random() * array.length);
+            if (!newArr.includes(randomNum)) {
+                newArr.push(randomNum);
+            }
+        }
+        console.log("newArr after random index has been inputted", newArr);
+
+        // if new array is less than original array, somehow fill out the rest of the photos
+        if (newArr.length < newArr.length) {
+            for (let i = 0; i < limit + newArr.length; i++) {
+                if (!newArr.includes(array[i]) && newArr.length <= limit) {
+                    console.log("it worked!");
+                    newArr.push(array[i]);
+                }
+            }
+        }
+
+        return newArr;
+    };
+
+    if (roverPhotos) {
+        console.log("randomindex:", randomPhotoIndex(roverPhotos.photos));
+    }
+
     return (
         <div>
             <h3 className={styles.desc}>
                 Photos taken on Curiosity's 1000th Martian sol exploration of
                 Mars.
             </h3>
-            {/* {roverPhotos && (
-                <h5 className={styles.desc_para}>
-                    Earth Date: {roverPhotos.photos[0].earth_date}
-                </h5>
-            )} */}
             <div className={styles.buttonGroup}>
                 <ButtonGroup aria-label="Basic example">
                     <Button
@@ -100,7 +128,9 @@ const MarsRover = () => {
             <div className={styles.gallery}>
                 {roverPhotos &&
                     roverPhotos.photos
-                        .filter((pics, index) => index < 12)
+                        .filter((pics, index) =>
+                            randomPhotoIndex(roverPhotos.photos).includes(index)
+                        )
                         .map((pic, index) => (
                             <RoverGallery roverPic={pic} key={index} />
                         ))}
