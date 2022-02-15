@@ -2,7 +2,7 @@ import styles from "./RoverGallery.module.scss";
 import { Card, Button } from "react-bootstrap";
 
 const RoverGallery = ({ roverPic }) => {
-    console.log("roverPic Prop:", roverPic);
+    // console.log("roverPic Prop:", roverPic);
     return (
         <div>
             {/* {if (roverPic.length === 0) { }} */}
