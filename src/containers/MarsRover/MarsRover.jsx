@@ -1,5 +1,6 @@
 import styles from "./MarsRover.module.scss";
 import RoverGallery from "../../components/RoverGallery";
+import RoverSearch from "../../components/RoverSearch/RoverSearch";
 import { useEffect, useState } from "react";
 import { ButtonGroup, Button } from "react-bootstrap";
 const key = "xtvhA8LjsnJ0AZ1bbpP4cWQJ6HjB7UEmhuR8lnjf";
@@ -12,16 +13,19 @@ const MarsRover = () => {
     // roverCamera state
     const [roverCamera, setRoverCamera] = useState("NAVCAM");
 
+    // Sol search state
+    const [solDate, setSolDate] = useState("1000");
+
     useEffect(() => {
         const getRoverPhotos = async () => {
             const response = await fetch(
-                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&&camera=${roverCamera}&api_key=${key}`
+                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=50&&camera=${roverCamera}&api_key=${key}`
             );
             const data = await response.json();
             setRoverPhotos(data);
         };
         getRoverPhotos();
-    }, [roverCamera]);
+    }, [roverCamera, solDate]);
 
     console.log("roverPhotos:", roverPhotos);
 
@@ -49,15 +53,15 @@ const MarsRover = () => {
         console.log("newArr after random index has been inputted", newArr);
 
         // if new array is less than original array, somehow fill out the rest of the photos
-        if (newArr.length < newArr.length) {
+        if (newArr.length < limit) {
             for (let i = 0; i < limit + newArr.length; i++) {
-                if (!newArr.includes(array[i]) && newArr.length <= limit) {
+                if (!newArr.includes(i) && newArr.length <= limit) {
                     console.log("it worked!");
-                    newArr.push(array[i]);
+                    newArr.push(i);
                 }
             }
         }
-
+        console.log("newArr:", newArr);
         return newArr;
     };
 
@@ -65,12 +69,20 @@ const MarsRover = () => {
         console.log("randomindex:", randomPhotoIndex(roverPhotos.photos));
     }
 
+    const handleSubmit = (searchValue) => {
+        setSolDate(searchValue);
+    };
+
     return (
         <div>
             <h3 className={styles.desc}>
-                Photos taken on Curiosity's 1000th Martian sol exploration of
-                Mars.
+                {`Photos taken on Curiosity's ${solDate}th Martian sol exploration of
+                Mars.`}
             </h3>
+            <div className={styles.roverSearch}>
+                change the sol date here ->{" "}
+                <RoverSearch onSubmit={handleSubmit} />
+            </div>
             <div className={styles.buttonGroup}>
                 <ButtonGroup aria-label="Basic example">
                     <Button
