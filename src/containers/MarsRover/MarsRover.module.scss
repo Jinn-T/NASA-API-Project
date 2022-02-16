@@ -1,6 +1,5 @@
 .desc {
     text-align: center;
-    align-items: center;
     margin: 2%;
 }
 
@@ -13,5 +12,10 @@
 .gallery {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.roverSearch {
+    display: flex;
     justify-content: center;
 }

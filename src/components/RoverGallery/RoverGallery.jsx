@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 const RoverGallery = ({ roverPic }) => {
     // console.log("roverPic Prop:", roverPic);
     return (
-        <div>
+        <div className={styles.cardBody}>
             {/* {if (roverPic.length === 0) { }} */}
             {/* {<img src={roverPic.img_src} alt="" />} */}
             <Card style={{ width: "36rem" }}>
