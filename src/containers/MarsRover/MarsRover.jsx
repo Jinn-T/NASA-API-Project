@@ -19,7 +19,7 @@ const MarsRover = () => {
     useEffect(() => {
         const getRoverPhotos = async () => {
             const response = await fetch(
-                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=50&&camera=${roverCamera}&api_key=${key}`
+                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=50&&camera=${roverCamera}&api_key=${demo}`
             );
             const data = await response.json();
             setRoverPhotos(data);
