@@ -1,11 +1,14 @@
 import styles from "./EventTracker.module.scss";
 import { useEffect, useState } from "react";
-import RoverSearch from "../../components/RoverSearch/RoverSearch";
+// import RoverSearch from "../../components/RoverSearch/RoverSearch";
 import EventCard from "../../components/EventCard";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const EventTracker = () => {
+    // state for api event data
     const [event, setEvents] = useState();
 
+    // state for search bar
     const [eventSearch, setEventSearch] = useState();
 
     useEffect(() => {
@@ -30,8 +33,11 @@ const EventTracker = () => {
 
     return (
         <div>
-            <RoverSearch onSubmit={handleSubmit} />
-            <EventCard />
+            <div className={styles.searchBar}>
+                <SearchBar onSubmit={handleSubmit} />
+            </div>
+
+            <EventCard event={event} />
         </div>
     );
 };
