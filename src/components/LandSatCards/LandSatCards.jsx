@@ -43,7 +43,10 @@ const LandSatCards = () => {
                 </Col>
                 <Col>
                     <Card>
-                        <Card.Img variant="top" src="holder.js/100px160" />
+                        <Card.Img
+                            variant="top"
+                            src="https://www.usnews.com/dims4/USNEWS/30db824/2147483647/resize/1200x%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F26%2F31%2F168cd600443580cc3c9d6ae428ca%2F1-intro-getty.jpg"
+                        />
                         <Card.Body>
                             <Card.Title>Card title</Card.Title>
                             <Card.Text>
