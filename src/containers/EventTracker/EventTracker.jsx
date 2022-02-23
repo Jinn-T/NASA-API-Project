@@ -31,14 +31,17 @@ const EventTracker = () => {
     console.log("eventSearch:", eventSearch);
 
     // handler to update state
-
     const handleSubmit = (event) => {
         setEventSearch(event);
     };
 
+    // handler to update days state
+    const handleDaysSubmit = (value) => {
+        setDays(value);
+    };
     return (
         <div>
-            <EventButtons />
+            <EventButtons onClick={handleDaysSubmit} />
             <div className={styles.searchBar}>
                 <SearchBar onSubmit={handleSubmit} />
             </div>
