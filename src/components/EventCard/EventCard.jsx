@@ -12,22 +12,22 @@ const EventCard = ({ event }) => {
                 />
                 <Card.Body>
                     <Card.Title>{event.title}</Card.Title>
-                    {/* <Card.Text>
+                    <Card.Text>
                         Some quick example text to build on the card title and
                         make up the bulk of the card's content.
-                    </Card.Text> */}
+                    </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>
                         Category: {event.categories[0].title}
                     </ListGroupItem>
-                    {/* <ListGroupItem>ID: {event.id}</ListGroupItem> */}
+                    <ListGroupItem>ID: {event.id}</ListGroupItem>
                     <ListGroupItem>
-                        Date: {event.geometries[0].date}
+                        Date: {event.geometry[0].date}
                     </ListGroupItem>
                     <ListGroupItem>
-                        Coordinates: {event.geometries[0].coordinates[0]},
-                        {event.geometries[0].coordinates[1]}
+                        Coordinates: {event.geometry[0].coordinates[0]},
+                        {event.geometry[0].coordinates[1]}
                     </ListGroupItem>
                 </ListGroup>
                 <Card.Body>
