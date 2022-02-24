@@ -1,3 +1,5 @@
+@import "../../partials/typography";
+
 .searchBar {
     margin: 3%;
 }
@@ -5,4 +7,16 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.title {
+    text-align: center;
+    font-family: $spaceGrotesk;
+    font-weight: 1000;
+    margin: 3%;
+}
+
+.para {
+    text-align: center;
+    font-family: $spaceMono;
 }

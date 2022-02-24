@@ -13,22 +13,23 @@ const EventTracker = () => {
     const [eventSearch, setEventSearch] = useState("hi");
 
     // state for buttonDays
-    const [days, setDays] = useState("10");
+    const [days, setDays] = useState();
 
     // `https://eonet.gsfc.nasa.gov/api/v2.1/events?source=InciWeb,EO`
     useEffect(() => {
         const getEvents = async () => {
             const response = await fetch(
-                `https://eonet.gsfc.nasa.gov/api/v2.1/events?limit=12&days=12`
+                `https://eonet.gsfc.nasa.gov/api/v3/events?days=${days}`
             );
             const data = await response.json();
             setEvents(data);
         };
         getEvents();
-    }, []);
+    }, [days]);
 
     console.log(event);
     console.log("eventSearch:", eventSearch);
+    console.log("days state in container:", days);
 
     // handler to update state
     const handleSubmit = (event) => {
@@ -39,12 +40,20 @@ const EventTracker = () => {
     const handleDaysSubmit = (value) => {
         setDays(value);
     };
+
     return (
         <div>
-            <EventButtons onClick={handleDaysSubmit} />
-            <div className={styles.searchBar}>
+            <h2 className={styles.title}>
+                THE EARTH OBSERVATORY NATURAL EVENT TRACKER (EONET)
+            </h2>
+            <p className={styles.para}>
+                Limit the number of prior days (including today) from which
+                events will be returned.
+            </p>
+            <EventButtons update={handleDaysSubmit} />
+            {/* <div className={styles.searchBar}>
                 <SearchBar onSubmit={handleSubmit} />
-            </div>
+            </div> */}
             <div className={styles.eventGallery}>
                 {event &&
                     event.events.map((n, index) => (
