@@ -13,9 +13,9 @@ const EventCard = ({ event }) => {
         if (event.categories[0].id === "seaLakeIce") {
             return seaLakeIce;
         }
-        if (event.categories[0].id === "severeStorms") {
-            return storm;
-        }
+        // if (event.categories[0].id === "severeStorms") {
+        //     return storm;
+        // }
     };
     return (
         <div className={styles.card}>
