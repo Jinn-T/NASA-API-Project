@@ -1,32 +1,43 @@
 import styles from "./EventCard.module.scss";
 import { Card, ListGroupItem, ListGroup } from "react-bootstrap";
+import storm from "./storm.webp";
+import seaLakeIce from "./sea_ice_polar_bear.jpg";
 
 const EventCard = ({ event }) => {
     console.log("event inside component", event);
+
+    const categoryPicture = () => {
+        if (event.categories[0].id === "severeStorms") {
+            return storm;
+        }
+        if (event.categories[0].id === "seaLakeIce") {
+            return seaLakeIce;
+        }
+        if (event.categories[0].id === "severeStorms") {
+            return storm;
+        }
+    };
     return (
         <div className={styles.card}>
             <Card style={{ width: "18rem" }}>
-                <Card.Img
-                    variant="top"
-                    src="holder.js/100px180?text=Image cap"
-                />
+                <Card.Img variant="top" src={categoryPicture()} />
                 <Card.Body>
                     <Card.Title>{event.title}</Card.Title>
-                    <Card.Text>
+                    {/* <Card.Text>
                         Some quick example text to build on the card title and
                         make up the bulk of the card's content.
-                    </Card.Text>
+                    </Card.Text> */}
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>
                         Category: {event.categories[0].title}
                     </ListGroupItem>
-                    <ListGroupItem>ID: {event.id}</ListGroupItem>
+                    {/* <ListGroupItem>ID: {event.id}</ListGroupItem> */}
                     <ListGroupItem>
                         Date: {event.geometry[0].date}
                     </ListGroupItem>
                     <ListGroupItem>
-                        Coordinates: {event.geometry[0].coordinates[0]},
+                        Coordinates: {event.geometry[0].coordinates[0]},{" "}
                         {event.geometry[0].coordinates[1]}
                     </ListGroupItem>
                 </ListGroup>
