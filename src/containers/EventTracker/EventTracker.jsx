@@ -13,7 +13,7 @@ const EventTracker = () => {
     const [eventSearch, setEventSearch] = useState("hi");
 
     // state for buttonDays
-    const [days, setDays] = useState();
+    const [days, setDays] = useState("1");
 
     // `https://eonet.gsfc.nasa.gov/api/v2.1/events?source=InciWeb,EO`
     useEffect(() => {
