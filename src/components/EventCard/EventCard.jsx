@@ -2,6 +2,8 @@ import styles from "./EventCard.module.scss";
 import { Card, ListGroupItem, ListGroup } from "react-bootstrap";
 import storm from "./storm.webp";
 import seaLakeIce from "./sea_ice_polar_bear.jpg";
+import wildf from "./wildf.jpg";
+import volc from "./volc.jpg";
 
 const EventCard = ({ event }) => {
     console.log("event inside component", event);
@@ -13,9 +15,12 @@ const EventCard = ({ event }) => {
         if (event.categories[0].id === "seaLakeIce") {
             return seaLakeIce;
         }
-        // if (event.categories[0].id === "severeStorms") {
-        //     return storm;
-        // }
+        if (event.categories[0].id === "wildfires") {
+            return wildf;
+        }
+        if (event.categories[0].id === "volcanoes") {
+            return volc;
+        }
     };
     return (
         <div className={styles.card}>
